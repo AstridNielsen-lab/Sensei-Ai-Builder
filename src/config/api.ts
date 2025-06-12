@@ -5,6 +5,18 @@ export const API_CONFIG = {
   VERCEL_API_URL: 'https://api.vercel.com',
 };
 
+// Configuração de automação completa
+export const AUTOMATION_CONFIG = {
+  AUTO_EXECUTE_COMMANDS: true,
+  AUTO_CREATE_PROJECTS: true,
+  AUTO_TESTING: true,
+  AUTO_DEPLOYMENT: true,
+  AUTO_GIT_COMMITS: true,
+  POWERSHELL_INTEGRATION: true,
+  LOCAL_STORAGE_PERSISTENCE: true,
+  REAL_TIME_PROGRESS: true
+};
+
 // Configurações do projeto
 export const PROJECT_CONFIG = {
   DEFAULT_TIMEOUT: 30000,

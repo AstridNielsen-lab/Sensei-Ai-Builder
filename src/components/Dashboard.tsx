@@ -16,7 +16,7 @@ import {
 import { useAIBuilder } from '../contexts/AIBuilderContext';
 
 const Dashboard: React.FC = () => {
-  const { projects, currentProject } = useAIBuilder();
+  const { projects, currentProject, personas, createCompleteProject } = useAIBuilder();
 
   const stats = [
     {
@@ -203,10 +203,18 @@ const Dashboard: React.FC = () => {
                 Automação Rápida
               </h3>
               <div className="space-y-3">
-                <button className="w-full flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 text-purple-600 dark:text-purple-400 hover:from-purple-100 hover:to-blue-100 dark:hover:from-purple-900/40 dark:hover:to-blue-900/40 transition-all transform hover:scale-105">
+                <button 
+                  onClick={() => {
+                    const description = prompt('Digite a descrição do projeto:', 'Landing page moderna para empresa');
+                    if (description && personas.length > 0) {
+                      createCompleteProject(description, 'typescript', 'react', personas[0]);
+                    }
+                  }}
+                  className="w-full flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 text-purple-600 dark:text-purple-400 hover:from-purple-100 hover:to-blue-100 dark:hover:from-purple-900/40 dark:hover:to-blue-900/40 transition-all transform hover:scale-105"
+                >
                   <div className="flex items-center space-x-3">
-                    <TerminalIcon className="w-5 h-5" />
-                    <span>Terminal PowerShell</span>
+                    <Zap className="w-5 h-5" />
+                    <span>Criar Projeto IA</span>
                   </div>
                   <ArrowRight className="w-4 h-4" />
                 </button>
