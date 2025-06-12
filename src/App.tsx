@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 import Sidebar from './components/Sidebar';
 import MainContent from './components/MainContent';
-import { ProjectProvider } from './contexts/ProjectContext';
+import { AIBuilderProvider } from './contexts/AIBuilderContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <ProjectProvider>
+      <AIBuilderProvider>
         <div className="flex h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
           <Sidebar 
             collapsed={sidebarCollapsed}
@@ -40,7 +40,7 @@ function App() {
             }}
           />
         </div>
-      </ProjectProvider>
+      </AIBuilderProvider>
     </ThemeProvider>
   );
 }
