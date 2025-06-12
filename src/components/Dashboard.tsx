@@ -13,10 +13,10 @@ import {
   ArrowRight,
   Terminal as TerminalIcon
 } from 'lucide-react';
-import { useProject } from '../contexts/ProjectContext';
+import { useAIBuilder } from '../contexts/AIBuilderContext';
 
 const Dashboard: React.FC = () => {
-  const { projects, currentProject } = useProject();
+  const { projects, currentProject } = useAIBuilder();
 
   const stats = [
     {
