@@ -60,11 +60,14 @@ Para configurar um domínio próprio:
 #### Erro "Missing build script"
 - ✅ **Resolvido**: Build script definido no `package.json`
 
+#### Erro "Invalid source pattern"
+- ✅ **Resolvido**: Simplificado `vercel.json` removendo headers problemáticos
+
 #### Rotas não funcionam (404)
-- ✅ **Resolvido**: SPA routing configurado no `vercel.json`
+- ✅ **Resolvido**: Dupla proteção - `vercel.json` + arquivo `_redirects`
 
 #### Problemas de cache
-- ✅ **Resolvido**: Headers de cache otimizados configurados
+- ✅ **Resolvido**: Configuração otimizada
 
 ### 6. Verificações Finais
 Antes do deploy, execute:
