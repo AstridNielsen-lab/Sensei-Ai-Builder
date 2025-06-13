@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
-import { AIBuilderProvider } from './contexts/AIBuilderContext';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { AIBuilderProvider } from './contexts/AIBuilderContext';
 import Dashboard from './components/Dashboard';
 import RealTerminal from './components/RealTerminal';
 
