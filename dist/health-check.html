@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Check - AI Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .status {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .details {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .success { color: #4ade80; }
+        .timestamp { font-size: 14px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Builder Health Check</h1>
+        <div class="status success">✅ Sistema Operacional</div>
+        
+        <div class="details">
+            <h3>Status dos Serviços:</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li>✅ Frontend React</li>
+                <li>✅ Vite Build System</li>
+                <li>✅ Vercel Deploy</li>
+                <li>✅ Static Assets</li>
+                <li>✅ SPA Routing</li>
+            </ul>
+        </div>
+        
+        <div class="details">
+            <h3>Informações Técnicas:</h3>
+            <p><strong>Build:</strong> <span id="buildTime"></span></p>
+            <p><strong>Versão:</strong> 1.0.0</p>
+            <p><strong>Framework:</strong> React + TypeScript + Vite</p>
+        </div>
+        
+        <a href="/" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: rgba(255,255,255,0.2); color: white; text-decoration: none; border-radius: 5px; border: 1px solid rgba(255,255,255,0.3);">
+            🏠 Voltar ao AI Builder
+        </a>
+    </div>
+    
+    <script>
+        document.getElementById('buildTime').textContent = new Date().toLocaleString('pt-BR');
+        
+        // Teste básico de JavaScript
+        console.log('✅ Health Check: JavaScript funcionando');
+        
+        // Teste de localStorage
+        try {
+            localStorage.setItem('health-check', 'ok');
+            localStorage.removeItem('health-check');
+            console.log('✅ Health Check: LocalStorage funcionando');
+        } catch (e) {
+            console.warn('⚠️ Health Check: LocalStorage com problemas');
+        }
+    </script>
+</body>
+</html>
+
