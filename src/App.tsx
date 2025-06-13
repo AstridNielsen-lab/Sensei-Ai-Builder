@@ -66,8 +66,24 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [showTerminal, setShowTerminal] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isAppReady, setIsAppReady] = useState(false);
+
+  // Log inicial para debug
+  useEffect(() => {
+    console.log('🚀 AI Builder App iniciando...');
+    console.log('📺 Splash Screen será exibida primeiro');
+    
+    // Garante que a aplicação está pronta
+    const timer = setTimeout(() => {
+      setIsAppReady(true);
+      console.log('✅ Aplicação pronta para renderizar');
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSplashComplete = () => {
+    console.log('🎉 Splash Screen finalizada, exibindo Dashboard...');
     setShowSplash(false);
   };
 
@@ -91,6 +107,21 @@ function App() {
       window.removeEventListener('unhandledrejection', handleRejection);
     };
   }, []);
+
+  // Se não está pronto, mostra loading básico
+  if (!isAppReady) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+        <div className="text-center text-white">
+          <div className="w-16 h-16 mx-auto bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mb-4">
+            <span className="text-2xl">🤖</span>
+          </div>
+          <h1 className="text-xl font-semibold mb-2">AI Builder</h1>
+          <p className="text-blue-200">Carregando...</p>
+        </div>
+      </div>
+    );
+  }
 
   // Se há erro, mostra tela de erro
   if (error) {

@@ -11,29 +11,32 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   const loadingStages = [
-    { text: 'Inicializando AI Builder...', duration: 800 },
-    { text: 'Conectando com Gemini AI...', duration: 1000 },
-    { text: 'Carregando Terminal PowerShell...', duration: 700 },
-    { text: 'Configurando Automação...', duration: 600 },
-    { text: 'Preparando Deploy Engines...', duration: 500 },
-    { text: 'Sistema Pronto!', duration: 400 }
+    { text: 'Inicializando AI Builder...', duration: 500 },
+    { text: 'Conectando com Gemini AI...', duration: 600 },
+    { text: 'Carregando Terminal PowerShell...', duration: 400 },
+    { text: 'Configurando Automação...', duration: 300 },
+    { text: 'Preparando Deploy Engines...', duration: 300 },
+    { text: 'Sistema Pronto!', duration: 200 }
   ];
 
   useEffect(() => {
+    console.log(`🎬 Splash Stage ${loadingStage + 1}/${loadingStages.length}: ${loadingStages[loadingStage].text}`);
+    
     const timer = setTimeout(() => {
       if (loadingStage < loadingStages.length - 1) {
         setLoadingStage(prev => prev + 1);
         setLoadingText(loadingStages[loadingStage + 1].text);
         setProgress(((loadingStage + 1) / loadingStages.length) * 100);
       } else {
+        console.log('🎉 Splash Screen finalizada, chamando onComplete...');
         setTimeout(() => {
           onComplete();
-        }, 800);
+        }, 400);
       }
     }, loadingStages[loadingStage].duration);
 
     return () => clearTimeout(timer);
-  }, [loadingStage, onComplete]);
+  }, [loadingStage, onComplete, loadingStages]);
 
   return (
     <AnimatePresence>
