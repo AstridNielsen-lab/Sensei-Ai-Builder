@@ -208,6 +208,15 @@ We welcome contributions! Here's how you can help:
 - Add tests for new features
 - Update documentation
 
+## 💰 Como Contribuir
+
+Qualquer valor doado ajuda a educar novos desenvolvedores em tecnologia!
+
+**PIX/PayPal**: radiotatuapefm@gmail.com  
+**Bitcoin**: bc1qmjf00jqttk2kgemxtxh0hv4xp8fqztnn23cuc2  
+**Ethereum**: 0x7481B4591e7f0DFAD23b884E78C46F0c207a3E35  
+**Litecoin**: ltc1qxytts52mykr2u83x6ghwllmu7d524ltt702mcc
+
 ## 📊 Performance
 
 - **Build Size**: ~343KB (gzipped: ~106KB)
