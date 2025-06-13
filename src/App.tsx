@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import { AIBuilderProvider } from './contexts/AIBuilderContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Dashboard from './components/Dashboard';
@@ -67,6 +68,7 @@ function App() {
   const [showTerminal, setShowTerminal] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isAppReady, setIsAppReady] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Log inicial para debug
   useEffect(() => {
@@ -83,8 +85,15 @@ function App() {
   }, []);
 
   const handleSplashComplete = () => {
-    console.log('🎉 Splash Screen finalizada, exibindo Dashboard...');
-    setShowSplash(false);
+    console.log('🎉 Splash Screen finalizada, iniciando transição para Dashboard...');
+    setIsTransitioning(true);
+    
+    // Pequena pausa para garantir transição suave
+    setTimeout(() => {
+      setShowSplash(false);
+      setIsTransitioning(false);
+      console.log('✅ Dashboard carregado com sucesso');
+    }, 300);
   };
 
   // Captura erros não tratados

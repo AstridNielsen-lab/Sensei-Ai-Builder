@@ -11,11 +11,11 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
 
   const loadingStages = [
-    { text: 'Inicializando AI Builder...', duration: 500 },
-    { text: 'Conectando com Gemini AI...', duration: 600 },
-    { text: 'Carregando Terminal PowerShell...', duration: 400 },
-    { text: 'Configurando Automação...', duration: 300 },
-    { text: 'Preparando Deploy Engines...', duration: 300 },
+    { text: 'Inicializando AI Builder...', duration: 200 },
+    { text: 'Conectando com Gemini AI...', duration: 200 },
+    { text: 'Carregando Terminal PowerShell...', duration: 200 },
+    { text: 'Configurando Automação...', duration: 200 },
+    { text: 'Preparando Deploy Engines...', duration: 200 },
     { text: 'Sistema Pronto!', duration: 200 }
   ];
 

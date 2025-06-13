@@ -75,6 +75,29 @@ npm run dev
 npm run build
 ```
 
+## 🌐 Rotas e Navegação
+
+O AI Builder possui múltiplas rotas nomeadas para facilitar o acesso direto:
+
+### Rotas Principais
+- **`/`** - Página inicial (redireciona para dashboard)
+- **`/dashboard`** - Dashboard principal da aplicação
+- **`/index-ia`** - Interface principal da IA (mesmo que dashboard)
+- **`/inicial-splash-screen`** - Tela de carregamento inicial
+
+### Rotas Alternativas
+- **`/ai-builder`** - Acesso alternativo ao dashboard
+- **`/builder`** - Interface do construtor
+- **`/home`** - Página inicial alternativa
+- **`/dev`** - Modo desenvolvedor
+
+### Características do Roteamento
+- ✅ **SPA (Single Page Application)**: Navegação fluida sem recarregamento
+- ✅ **Fallback Automático**: Qualquer rota inválida redireciona para o dashboard
+- ✅ **Otimizado para Deploy**: Configurado para Vercel, Netlify e Apache
+- ✅ **Animações Rápidas**: Splash screen otimizada (1.2s total)
+- ✅ **URLs Diretas**: Acesse qualquer página diretamente pela URL
+
 ## 💻 Usage Examples
 
 ### Example 1: E-commerce Website
