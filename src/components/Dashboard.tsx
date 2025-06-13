@@ -106,6 +106,7 @@ const Dashboard: React.FC = () => {
             className="text-3xl font-bold text-gray-900 dark:text-white mb-2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
           >
             {currentProject ? `${currentProject.name} - Overview` : 'AI Development Dashboard'}
           </motion.h1>
@@ -113,7 +114,7 @@ const Dashboard: React.FC = () => {
             className="text-gray-600 dark:text-gray-400"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.05, duration: 0.2 }}
           >
             {currentProject 
               ? `Acompanhe o progresso do seu projeto ${currentProject.language}/${currentProject.framework} com automação completa`
@@ -129,7 +130,7 @@ const Dashboard: React.FC = () => {
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.02, duration: 0.2 }}
               className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow"
             >
               <div className="flex items-center justify-between mb-4">
@@ -156,7 +157,7 @@ const Dashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.1, duration: 0.2 }}
               className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700"
             >
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
@@ -196,7 +197,7 @@ const Dashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.15, duration: 0.2 }}
               className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700"
             >
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
@@ -249,7 +250,7 @@ const Dashboard: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.2, duration: 0.2 }}
               className="mt-6 bg-gradient-to-r from-gray-900 to-black rounded-xl p-6 text-white"
             >
               <div className="flex items-center space-x-3 mb-4">
@@ -284,7 +285,7 @@ const Dashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
+            transition={{ delay: 0.25, duration: 0.2 }}
             className="mt-8 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 rounded-xl p-8 text-white"
           >
             <div className="flex items-center justify-between">
