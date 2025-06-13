@@ -12,6 +12,8 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    target: 'es2015',
+    minify: 'terser',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -22,4 +24,12 @@ export default defineConfig({
     }
   },
   base: '/',
+  server: {
+    host: true,
+    port: 3000
+  },
+  preview: {
+    host: true,
+    port: 3000
+  }
 });

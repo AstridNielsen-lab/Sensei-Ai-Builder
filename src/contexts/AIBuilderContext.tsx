@@ -81,40 +81,67 @@ export const AIBuilderProvider: React.FC<AIBuilderProviderProps> = ({ children }
 
   // Carrega dados do localStorage
   useEffect(() => {
-    const savedProjects = localStorage.getItem('ai-builder-projects');
-    if (savedProjects) {
-      try {
-        const parsed = JSON.parse(savedProjects);
-        setProjects(parsed.map((p: any) => ({ 
-          ...p, 
-          createdAt: new Date(p.createdAt),
-          updatedAt: new Date(p.updatedAt)
-        })));
-      } catch (error) {
-        console.error('Erro ao carregar projetos:', error);
-      }
-    }
+    try {
+      // Verifica se localStorage está disponível (evita erros no SSR)
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const savedProjects = localStorage.getItem('ai-builder-projects');
+        if (savedProjects) {
+          try {
+            const parsed = JSON.parse(savedProjects);
+            if (Array.isArray(parsed)) {
+              setProjects(parsed.map((p: any) => ({ 
+                ...p, 
+                createdAt: new Date(p.createdAt),
+                updatedAt: new Date(p.updatedAt)
+              })));
+            }
+          } catch (error) {
+            console.error('Erro ao carregar projetos:', error);
+            // Limpa dados corrompidos
+            localStorage.removeItem('ai-builder-projects');
+          }
+        }
 
-    const savedPersonas = localStorage.getItem('ai-builder-personas');
-    if (savedPersonas) {
-      try {
-        const parsed = JSON.parse(savedPersonas);
-        setPersonas(prev => [...prev, ...parsed]);
-      } catch (error) {
-        console.error('Erro ao carregar personas:', error);
+        const savedPersonas = localStorage.getItem('ai-builder-personas');
+        if (savedPersonas) {
+          try {
+            const parsed = JSON.parse(savedPersonas);
+            if (Array.isArray(parsed)) {
+              setPersonas(prev => [...prev, ...parsed]);
+            }
+          } catch (error) {
+            console.error('Erro ao carregar personas:', error);
+            // Limpa dados corrompidos
+            localStorage.removeItem('ai-builder-personas');
+          }
+        }
       }
+    } catch (error) {
+      console.error('Erro geral ao carregar dados:', error);
     }
   }, []);
 
   // Salva projetos no localStorage
   useEffect(() => {
-    localStorage.setItem('ai-builder-projects', JSON.stringify(projects));
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        localStorage.setItem('ai-builder-projects', JSON.stringify(projects));
+      }
+    } catch (error) {
+      console.error('Erro ao salvar projetos:', error);
+    }
   }, [projects]);
 
   // Salva personas customizadas no localStorage
   useEffect(() => {
-    const customPersonas = personas.filter(p => p.trainedBy === 'user');
-    localStorage.setItem('ai-builder-personas', JSON.stringify(customPersonas));
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const customPersonas = personas.filter(p => p.trainedBy === 'user');
+        localStorage.setItem('ai-builder-personas', JSON.stringify(customPersonas));
+      }
+    } catch (error) {
+      console.error('Erro ao salvar personas:', error);
+    }
   }, [personas]);
 
   const createProject = (projectData: Omit<Project, 'id' | 'createdAt' | 'updatedAt' | 'status' | 'files'>) => {
