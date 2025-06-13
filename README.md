@@ -240,6 +240,22 @@ Qualquer valor doado ajuda a educar novos desenvolvedores em tecnologia!
 **Ethereum**: 0x7481B4591e7f0DFAD23b884E78C46F0c207a3E35  
 **Litecoin**: ltc1qxytts52mykr2u83x6ghwllmu7d524ltt702mcc
 
+## 🔄 Changelog
+
+### v1.0.1 - Bug Fixes & Performance (2024-12-13)
+- ✅ **FIXED**: Erro "React is not defined" em produção
+- ✅ **IMPROVED**: Roteamento SPA com redirecionamento automático para dashboard
+- ✅ **OPTIMIZED**: Build com chunking correto de dependências (vendor, editor, router)
+- ✅ **ENHANCED**: Configuração .htaccess e _redirects para hospedagem
+- ✅ **ADDED**: Cache headers e compressão gzip para performance
+- ✅ **UPDATED**: Documentação com todas as rotas disponíveis
+
+### v1.0.0 - Initial Release (2024-12-12)
+- 🚀 **LAUNCHED**: AI Builder platform com Gemini AI
+- 🎨 **ADDED**: Sistema de personas avançado
+- 💻 **INTEGRATED**: Terminal PowerShell simulado
+- 🌐 **DEPLOYED**: Suporte multi-plataforma (Vercel, Netlify, GitHub Pages)
+
 ## 📊 Performance
 
 - **Build Size**: ~343KB (gzipped: ~106KB)
